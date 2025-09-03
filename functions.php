@@ -27,3 +27,24 @@ if (!function_exists('warn_if_breakdance_is_disabled')) {
         <?php
     }
 }
+
+add_action( 'wp_enqueue_scripts', 'custom_enqueue_files' );
+/**
+ * Loads <list assets here>.
+ */
+function custom_enqueue_files() {
+	// if this is not the front page, abort.
+	// if ( ! is_front_page() ) {
+	// 	return;
+	// }
+
+	// loads a CSS file in the head.
+	wp_enqueue_style( 'custom', get_stylesheet_directory_uri().'/style.css?v=1' );
+
+	/**
+	 * loads JS files in the footer.
+	 */
+	// wp_enqueue_script( 'highlightjs', plugin_dir_url( __FILE__ ) . 'assets/js/highlight.pack.js', '', '9.9.0', true );
+
+	// wp_enqueue_script( 'highlightjs-init', plugin_dir_url( __FILE__ ) . 'assets/js/highlight-init.js', '', '1.0.0', true );
+}
